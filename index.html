@@ -3,381 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaibhav Enterprises - Contact Us</title>
+    <title>Lazy Ninjas - Contact Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #f5f5f5;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .form-container {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            width: 100%;
-            max-width: 500px;
-        }
-
-        h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-        }
-
-        label .optional {
-            font-weight: 400;
-            color: #666;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        input[type="tel"]:focus,
-        textarea:focus {
-            outline: none;
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        input::placeholder,
-        textarea::placeholder {
-            color: #9ca3af;
-        }
-
-        .name-row {
-            display: flex;
-            gap: 12px;
-        }
-
-        .name-row .form-group {
-            flex: 1;
-        }
-
-        .name-row label {
-            display: none;
-        }
-
-        textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        .checkbox-group {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 24px;
-        }
-
-        .checkbox-group input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            margin-top: 2px;
-            cursor: pointer;
-            accent-color: #2563eb;
-        }
-
-        .checkbox-group .checkbox-label {
-            font-size: 0.9rem;
-            color: #374151;
-            line-height: 1.5;
-        }
-
-        .checkbox-group .checkbox-label strong {
-            font-weight: 600;
-            display: block;
-            margin-bottom: 4px;
-            color: #1a1a1a;
-        }
-
-        .submit-btn {
-            background: #2563eb;
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .submit-btn:hover {
-            background: #1d4ed8;
-        }
-
-        .footer-text {
-            text-align: center;
-            margin-top: 24px;
-            font-size: 0.85rem;
-            color: #6b7280;
-        }
-
-        .footer-text a {
-            color: #2563eb;
-            text-decoration: none;
-            border: 1px solid #e0e0e0;
-            padding: 2px 8px;
-            border-radius: 4px;
-            background: #f9fafb;
-        }
-
-        .footer-text a:hover {
-            background: #f3f4f6;
-        }
-
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
-        .modal {
-            background: white;
-            border-radius: 12px;
-            max-width: 700px;
-            width: 100%;
-            max-height: 80vh;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .modal-header {
-            padding: 20px 24px;
-            border-bottom: 1px solid #e5e7eb;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-header h2 {
-            font-size: 1.25rem;
-            color: #1a1a1a;
-        }
-
-        .modal-close {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #6b7280;
-            padding: 4px 8px;
-        }
-
-        .modal-close:hover {
-            color: #1a1a1a;
-        }
-
-        .modal-body {
-            padding: 24px;
-            overflow-y: auto;
-            font-size: 0.9rem;
-            line-height: 1.7;
-            color: #374151;
-        }
-
-        .modal-body h3 {
-            font-size: 1rem;
-            color: #1a1a1a;
-            margin: 20px 0 10px 0;
-        }
-
-        .modal-body h3:first-child {
-            margin-top: 0;
-        }
-
-        .modal-body p {
-            margin-bottom: 12px;
-        }
-
-        .modal-body .highlight {
-            background: #fef3c7;
-            padding: 12px 16px;
-            border-radius: 8px;
-            border-left: 4px solid #f59e0b;
-            margin: 16px 0;
-            font-weight: 500;
-        }
-
-        @media (max-width: 500px) {
-            .name-row {
-                flex-direction: column;
-                gap: 0;
-            }
-
-            .form-container {
-                padding: 24px;
-            }
-
-            h1 {
-                font-size: 1.5rem;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); background-attachment: fixed; }
+        body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.15) 0%, transparent 50%); pointer-events: none; }
+        .form-container { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); padding: 48px; border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1); width: 100%; max-width: 480px; position: relative; overflow: hidden; }
+        .form-container::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2, #f093fb); }
+        .brand-badge { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px; }
+        .brand-badge svg { width: 14px; height: 14px; }
+        h1 { font-size: 2rem; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
+        .subtitle { color: #64748b; font-size: 0.95rem; margin-bottom: 32px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: 600; color: #334155; margin-bottom: 8px; font-size: 0.875rem; }
+        label .optional { font-weight: 400; color: #94a3b8; font-size: 0.8rem; }
+        input[type="text"], input[type="email"], input[type="tel"], textarea { width: 100%; padding: 14px 18px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; font-family: inherit; transition: all 0.2s ease; background: #f8fafc; }
+        input[type="text"]:hover, input[type="email"]:hover, input[type="tel"]:hover, textarea:hover { border-color: #cbd5e1; }
+        input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, textarea:focus { outline: none; border-color: #667eea; background: #ffffff; box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1); }
+        input::placeholder, textarea::placeholder { color: #94a3b8; }
+        .name-row { display: flex; gap: 12px; }
+        .name-row .form-group { flex: 1; }
+        .name-row label { display: none; }
+        textarea { min-height: 100px; resize: vertical; }
+        .checkbox-group { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 28px; padding: 18px; background: linear-gradient(135deg, #f0f4ff 0%, #faf5ff 100%); border-radius: 14px; border: 1px solid #e0e7ff; }
+        .checkbox-group input[type="checkbox"] { width: 22px; height: 22px; margin-top: 2px; cursor: pointer; accent-color: #667eea; flex-shrink: 0; }
+        .checkbox-group .checkbox-label { font-size: 0.85rem; color: #475569; line-height: 1.6; cursor: pointer; }
+        .checkbox-group .checkbox-label strong { font-weight: 600; display: flex; align-items: center; gap: 6px; margin-bottom: 6px; color: #1e293b; font-size: 0.9rem; }
+        .checkbox-group .checkbox-label strong svg { width: 16px; height: 16px; color: #667eea; }
+        .submit-btn { width: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 16px 28px; font-size: 1rem; font-weight: 600; border-radius: 12px; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5); }
+        .submit-btn:active { transform: translateY(0); }
+        .submit-btn svg { width: 20px; height: 20px; }
+        .footer-text { text-align: center; margin-top: 24px; font-size: 0.8rem; color: #64748b; line-height: 1.6; }
+        .footer-text a { color: #667eea; text-decoration: none; font-weight: 500; padding: 2px 10px; border-radius: 6px; background: #f0f4ff; transition: all 0.2s ease; }
+        .footer-text a:hover { background: #e0e7ff; color: #5a67d8; }
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(4px); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
+        .modal-overlay.active { display: flex; }
+        .modal { background: white; border-radius: 20px; max-width: 650px; width: 100%; max-height: 85vh; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); animation: modalSlideIn 0.3s ease; }
+        @keyframes modalSlideIn { from { opacity: 0; transform: translateY(-20px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        .modal-header { padding: 24px 28px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; justify-content: space-between; align-items: center; }
+        .modal-header h2 { font-size: 1.25rem; color: white; display: flex; align-items: center; gap: 10px; }
+        .modal-header h2 svg { width: 24px; height: 24px; }
+        .modal-close { background: rgba(255,255,255,0.2); border: none; font-size: 1.25rem; cursor: pointer; color: white; width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; transition: background 0.2s ease; }
+        .modal-close:hover { background: rgba(255,255,255,0.3); }
+        .modal-body { padding: 28px; overflow-y: auto; font-size: 0.9rem; line-height: 1.8; color: #475569; }
+        .modal-body h3 { font-size: 0.95rem; color: #1e293b; margin: 24px 0 12px 0; display: flex; align-items: center; gap: 8px; }
+        .modal-body h3::before { content: ''; width: 4px; height: 18px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 2px; }
+        .modal-body h3:first-child { margin-top: 0; }
+        .modal-body p { margin-bottom: 12px; }
+        .modal-body .highlight { background: linear-gradient(135deg, #fef3c7 0%, #fef9c3 100%); padding: 16px 20px; border-radius: 12px; border-left: 4px solid #f59e0b; margin: 20px 0; font-weight: 500; color: #92400e; }
+        .modal-body .highlight strong { display: block; margin-bottom: 6px; color: #78350f; }
+        @media (max-width: 500px) { .name-row { flex-direction: column; gap: 0; } .form-container { padding: 32px 24px; } h1 { font-size: 1.5rem; } .checkbox-group { padding: 14px; } }
     </style>
 </head>
 <body>
     <div class="form-container">
+        <div class="brand-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+            Lazy Ninjas
+        </div>
         <h1>Send a Message</h1>
-        
+        <p class="subtitle">We'd love to hear from you. Fill out the form below.</p>
         <form id="contactForm">
             <label>Name</label>
             <div class="name-row">
-                <div class="form-group">
-                    <input type="text" name="firstName" placeholder="First Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" name="lastName" placeholder="Last Name" required>
-                </div>
+                <div class="form-group"><input type="text" name="firstName" placeholder="First Name" required></div>
+                <div class="form-group"><input type="text" name="lastName" placeholder="Last Name" required></div>
             </div>
-
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" name="email" placeholder="Email" required>
-            </div>
-
-            <div class="form-group">
-                <label>Phone <span class="optional">(optional)</span></label>
-                <input type="tel" name="phone" placeholder="(123) 456-7890">
-            </div>
-
+            <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="you@example.com" required></div>
+            <div class="form-group"><label>Phone <span class="optional">(optional)</span></label><input type="tel" name="phone" placeholder="(123) 456-7890"></div>
             <div class="checkbox-group">
                 <input type="checkbox" id="textOptIn" name="textOptIn">
                 <label for="textOptIn" class="checkbox-label">
-                    <strong>Text Opt In</strong>
-                    By checking this box, you give consent to Vaibhav Enterprises to send SMS messages. Message frequency may vary. Message and data rates may apply. Reply STOP to unsubscribe and HELP for assistance.
+                    <strong><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>Text Opt In</strong>
+                    By checking this box, you give consent to Lazy Ninjas to send SMS messages. Message frequency may vary. Message and data rates may apply. Reply STOP to unsubscribe and HELP for assistance.
                 </label>
             </div>
-
-            <div class="form-group">
-                <label>Message</label>
-                <textarea name="message" placeholder="Message"></textarea>
-            </div>
-
-            <button type="submit" class="submit-btn">Submit</button>
+            <div class="form-group"><label>Message</label><textarea name="message" placeholder="How can we help you?"></textarea></div>
+            <button type="submit" class="submit-btn">Submit Message<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg></button>
         </form>
-
-        <p class="footer-text">
-            By submitting this form, you agree to Vaibhav Enterprises's <a href="#" onclick="openPrivacyModal(); return false;">privacy</a> policy
-        </p>
+        <p class="footer-text">By submitting this form, you agree to Lazy Ninjas's <a href="#" onclick="openPrivacyModal(); return false;">privacy policy</a></p>
     </div>
-
     <div class="modal-overlay" id="privacyModal">
         <div class="modal">
             <div class="modal-header">
-                <h2>Privacy Policy</h2>
+                <h2><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>Privacy Policy</h2>
                 <button class="modal-close" onclick="closePrivacyModal()">&times;</button>
             </div>
             <div class="modal-body">
                 <h3>PRIVACY NOTICE</h3>
-                <p>Vaibhav Enterprises ("Vaibhav Enterprises," "we," or "us") respects your privacy and is committed to protecting it by complying with this privacy notice. This Privacy Notice describes the type of information we may collect, who we may collect it from, and our practices for collecting, using, maintaining, protecting, and disclosing that information.</p>
-
+                <p>Lazy Ninjas ("Lazy Ninjas," "we," or "us") respects your privacy and is committed to protecting it by complying with this privacy notice. This Privacy Notice describes the type of information we may collect, who we may collect it from, and our practices for collecting, using, maintaining, protecting, and disclosing that information.</p>
                 <h3>INFORMATION WE COLLECT</h3>
-                <p>We may collect several types of information from and about users, including:</p>
-                <p>Information by which you may be personally identified such as name, email, phone number, physical address, or any other information which could be associated with or used to identify you ("personal information").</p>
-
+                <p>We may collect several types of information from and about users, including information by which you may be personally identified such as name, email, phone number, physical address, or any other information which could be associated with or used to identify you.</p>
                 <h3>HOW WE USE YOUR INFORMATION</h3>
                 <p>We use information that we collect about you or that you provide to us to present our services and its contents to you, to provide you with information, products, or services you request from us, to fulfill any other purpose for which you provide it, and to notify you about changes to our services.</p>
-
                 <h3>SHARING YOUR INFORMATION</h3>
                 <p>We may disclose information that we collect or you provide to contractors, service providers, and other third parties who are bound by contractual obligations to keep personal information confidential and use it only for the purposes for which we disclose it to them.</p>
-
-                <div class="highlight">
-                    <strong>Mobile Information Disclosure:</strong> No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.
-                </div>
-
+                <div class="highlight"><strong>📱 Mobile Information Disclosure</strong>No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.</div>
                 <h3>PROTECTION OF YOUR INFORMATION</h3>
                 <p>We have implemented measures designed to secure your personal information from accidental loss and from unauthorized access, use, alteration, and disclosure.</p>
-
                 <h3>YOUR CHOICES</h3>
                 <p>If you do not wish to receive our marketing messages, you may unsubscribe by following the unsubscribe instructions or by replying STOP to any SMS message. You may continue to receive service-related and other non-marketing messages.</p>
-
                 <h3>CHILDREN UNDER THE AGE OF 13</h3>
                 <p>Our services are not directed at or intended for children under 13 years of age. We do not knowingly collect information from children under 13.</p>
-
                 <h3>CONTACT US</h3>
                 <p>To ask questions or comment about this Privacy Notice and our practices, please contact us.</p>
             </div>
         </div>
     </div>
-
     <script>
-        function openPrivacyModal() {
-            document.getElementById('privacyModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closePrivacyModal() {
-            document.getElementById('privacyModal').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        document.getElementById('privacyModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closePrivacyModal();
-            }
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closePrivacyModal();
-            }
-        });
-
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Form submitted successfully!');
-        });
+        function openPrivacyModal() { document.getElementById('privacyModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closePrivacyModal() { document.getElementById('privacyModal').classList.remove('active'); document.body.style.overflow = ''; }
+        document.getElementById('privacyModal').addEventListener('click', function(e) { if (e.target === this) { closePrivacyModal(); } });
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closePrivacyModal(); } });
+        window.onload = function() { const urlParams = new URLSearchParams(window.location.search); if (urlParams.get('showPrivacy') === 'true') { openPrivacyModal(); } };
+        document.getElementById('contactForm').addEventListener('submit', function(e) { e.preventDefault(); alert('Form submitted successfully!'); });
     </script>
 </body>
 </html>
